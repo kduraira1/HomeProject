@@ -1,6 +1,6 @@
 public class MergeString {
     public static String merge(String str1, String str2){
-        StringBuffer strBuff = new StringBuffer();
+        StringBuilder strBuff = new StringBuilder();
         int i;
         for( i=0; i < Math.min(str1.length(), str2.length()); i++) {
             strBuff.append(str1.charAt(i));
