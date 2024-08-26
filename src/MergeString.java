@@ -10,7 +10,7 @@ public class MergeString {
             strBuff.append(str2.substring(i));
         } else {
             strBuff.append(str1.substring(i));
-        }*/
+        }//*/
 
         strBuff.append(str1.length() == i ? str2.substring(i) : str1.substring(i));
 
