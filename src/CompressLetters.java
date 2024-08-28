@@ -1,5 +1,5 @@
 import java.util.Arrays;
-
+// Refer coding practice page for better coding.
 public class CompressLetters {
     public int updateArray(char[] charArr){
         int count = 0;

@@ -5,9 +5,9 @@ public class MergeSortedArray {
       int i = m -1;
       int j = n -1;
       int k = m + n -1;
-      while (j >=0) {
+      while (j >=0) { // second array length
           if(i>=0 && nums1[i] > nums2[j]) {
-              nums1[k--] = nums1[i--];
+              nums1[k--] = nums1[i--]; //Decrement only if it's
           } else {
               nums1[k--] = nums2[j--];
           }
