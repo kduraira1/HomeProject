@@ -26,7 +26,7 @@ public class AddTwoLinkedList {
          return dummy.next;
     }
     public static void main(String[] args){
-         ListNode l1 = new ListNode(2,new ListNode(4, new ListNode(3, null)));
+        ListNode l1 = new ListNode(2,new ListNode(4, new ListNode(3, null)));
         ListNode l2 = new ListNode(5,new ListNode(6, new ListNode(4, null)));
         AddTwoLinkedList addList = new AddTwoLinkedList();
         ListNode result = addList.addTwoNumbers(l1,l2);
@@ -37,11 +37,4 @@ public class AddTwoLinkedList {
 
     }
 
-}
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 }
