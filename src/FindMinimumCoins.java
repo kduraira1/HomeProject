@@ -4,6 +4,30 @@ import java.util.List;
 
 public class FindMinimumCoins {
 
+// Write it down on the paper to come up with logic... if no logic coms up then don't code.
+    // learn the logic.
+    public int minimumCoinDP(int[] coins, int amount) {
+
+        int[] dp = new int[amount+1];
+
+        //initializing the DP array.
+        /* replace with arrays util ..for (int i = 1; i < dp.length; i++) {
+            dp[i] = amount + 1;
+        } */
+
+        Arrays.fill(dp, amount + 1);
+        dp[0] = 0;
+        for(int i = 1; i <= amount; i++) {
+            for(int j = 0; j < coins.length; j++) {
+                if( i - coins[j] >= 0) {
+                    dp[i] = Math.min(dp[i], 1+ dp[i-coins[j]]);
+                }
+            }
+        }
+        return dp[amount];
+
+    }
+
     public int coinChange(int[] coins, int amount) {
         List<Integer> result = new ArrayList<Integer>();
         List<Integer> tempResult = new ArrayList<Integer>();
@@ -105,7 +129,8 @@ public class FindMinimumCoins {
 
     public static void main(String[] args) {
         FindMinimumCoins fmc = new FindMinimumCoins();
-        System.out.println(fmc.coinChange(new int[]{1,2,5,10},27));
+        //System.out.println(fmc.coinChange(new int[]{1,2,5,10},100));
+        System.out.println(fmc.minimumCoinDP(new int[]{1,2,5,10},100));
     }
 
 }
