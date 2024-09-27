@@ -127,10 +127,40 @@ public class FindMinimumCoins {
         }
     }
 
+    public int coinChange1(int[] coins, int amount) {
+
+        int[] memo = new int[amount+1];
+        int result = backTrack(coins, amount, memo, amount+1);
+        System.out.println(result);
+
+        return result > amount ? -1 : result;
+
+    }
+
+    public int backTrack(int[] coins, int amount, int[] memo, int result) {
+        if(memo[amount] !=0) {
+            return memo[amount];
+        }
+        if(amount == 0) {
+            result = 0;
+        } else {
+            // result = amount+1;
+            for(int coin : coins) {
+                int subProblem = amount - coin;
+                if(subProblem < 0) continue;
+                int tempResult = backTrack(coins, subProblem, memo, result);
+                result = Math.min(result,  tempResult + 1);
+                //System.out.println(result);
+            }
+        }
+        memo[amount] = result;
+        return result;
+    }
     public static void main(String[] args) {
         FindMinimumCoins fmc = new FindMinimumCoins();
         //System.out.println(fmc.coinChange(new int[]{1,2,5,10},100));
-        System.out.println(fmc.minimumCoinDP(new int[]{1,2,5,10},100));
+        //System.out.println(fmc.minimumCoinDP(new int[]{1,2,5,10},100));
+        System.out.println(fmc.coinChange1(new int[]{186,419,83,408},10000));
     }
 
 }

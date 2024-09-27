@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class BackTrackingSolutions {
@@ -125,16 +126,46 @@ public class BackTrackingSolutions {
         }
 
     }
+
+
+    public List<List<String>>  palindormOptions(String str) {
+        List<List<String>> palResult = new ArrayList<>();
+        backTrackPal(str, palResult, new ArrayList<>(), 0);
+        return palResult;
+    }
+    public void backTrackPal(String str, List<List<String>> result, List<String> tempResult, int index) {
+        if(index  == str.length()) result.add(new ArrayList<>(tempResult));  // very important to add new Array as we remove it below for tempResult.
+        if(str == null) return;
+        for(int i =index; i < str.length() ; i++) {
+            if(isPalinDrome1(str,index, i)) {
+                tempResult.add(str.substring(index,i+1));
+                backTrackPal(str, result, tempResult, i+1);
+                tempResult.removeLast();
+            }
+
+        }
+    }
+
+    public boolean isPalinDrome1(String str, int start, int end){
+        if(str.isEmpty()) return false;
+        while (start <end) {
+            if(str.charAt(start++) != str.charAt(end--) ) {
+                return false;
+            }
+        }
+        return  true;
+    }
+
+
+
     public static void main(String[] args){
         BackTrackingSolutions bts = new BackTrackingSolutions();
-        System.out.println((bts.generateSubsets(new int[] {1,2,2})).toString());
+        /*System.out.println((bts.generateSubsets(new int[] {1,2,2})).toString());
         System.out.println((bts.permutation(new int[] {1,2,3})).toString());
         System.out.println((bts.targetSum(new int[] {2,3,5}, 8)).toString());
-        System.out.println((bts.combinationSum(new int[] {2,3,5}, 8)).toString());
+        System.out.println((bts.combinationSum(new int[] {2,3,5}, 8)).toString()); */
         System.out.println(bts.combinationPalindrome("aab"));
-
-
-
+        System.out.println(bts.palindormOptions("iTopiNonAvevanoNipoti"));
 
 
     }
