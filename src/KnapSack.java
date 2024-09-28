@@ -41,6 +41,37 @@ public class KnapSack {
         }
     }
 
+    public int knapSackTopDownDP(int[] weight, int[] values, int maxWeight, int size) {
+        //Calculate base condition.
+        int[][] memo = new int[size + 1][maxWeight + 1];
+        if (maxWeight == 0 || size == 0) {
+            return 0;
+        }
+        for (int i = 0; i < memo.length; i++) {
+            for (int j = 0; j < memo[0].length; j++) {
+                if (i == 0 || j == 0) memo[i][j] = 0;
+            }
+
+        }
+        // Choice diagram implementation
+
+        for (int i = 1; i < size+1; i++) {
+            for (int j = 1; j < maxWeight +1 ; j++) {
+                if (weight[i-1] <= j) {
+                    int include = values[i-1] + memo[i - 1][j - weight[i - 1]];
+                    memo[i][j] = Math.max(include,
+                            memo[i - 1][j]);
+                    //return memo[i][j];
+
+                } else {
+                    memo[i][j] = memo[i - 1][j];
+                    //return  memo[size][maxWeight];
+                }
+            }
+        }
+        return memo[size][maxWeight];
+    }
+
     public  static void  main(String[] arg) {
 
         int[] weight = new int[] {1,3,4,5};
@@ -56,6 +87,9 @@ public class KnapSack {
 
         System.out.println(ks.recursiveKnapSack(weight, values, 7, 4));
         System.out.println(ks.recursiveKnapSackWithMemo(weight, values, 7, 4, memo));
+        int[] weight1 = new int[] {1,3,4,5};
+        int[] values1 = new int[] {1,4,5,7};
+        System.out.println(ks.knapSackTopDownDP(weight1, values1, 7,4));
 
 
     }
