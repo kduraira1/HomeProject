@@ -10,6 +10,13 @@ public class BinaryTreeTraverse {
         return 1+Math.max(depthOfBinaryTree(root.left),depthOfBinaryTree(root.right));
 
     }
+    public int depthOfBinaryTree1( TreeNode root) {
+        if (root == null) return 0;
+        int lhs = 1 + depthOfBinaryTree(root.left);
+        int rhs = 1 + depthOfBinaryTree(root.right);
+        return Math.max(lhs,rhs);
+
+    }
 
     public boolean isSymmetric(TreeNode node) {
         if(node == null) return true;
@@ -71,7 +78,8 @@ public class BinaryTreeTraverse {
         root.right = new TreeNode(20);
         root.right.left = new TreeNode(15);
         root.right.right = new TreeNode(7);
-        System.out.println(btt.depthOfBinaryTree(root));
+        System.out.println("Depth 1 : " + btt.depthOfBinaryTree(root));
+        System.out.println("depth 2: " + btt.depthOfBinaryTree1(root));
 
         TreeNode root1 = new TreeNode(1);
         root1.left = new TreeNode(2);

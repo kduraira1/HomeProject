@@ -6,7 +6,7 @@ import java.util.Map;
 public class PatternCheck {
 
     //Input: pattern = "abba", s = "dog cat cat dog"
-      public boolean doesFollowPatter(String pattern, String input) {
+      public boolean doesFollowPattern(String pattern, String input) {
           String[] splitString = input.split("\\s+");
           StringBuilder strBuild = new StringBuilder();
           for (String s : splitString) {
@@ -67,7 +67,7 @@ public class PatternCheck {
 
     public static void main(String[] args) {
         PatternCheck pc = new PatternCheck();
-        System.out.println( pc.doesFollowPatter("abba", "dog cat cat dog"));
+        System.out.println( pc.doesFollowPattern("abba", "dog cat cat dog"));
         System.out.println(pc.isIsomorphic("abba", "dccd"));
 
 
