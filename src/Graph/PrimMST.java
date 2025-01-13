@@ -70,6 +70,7 @@ public class PrimMST {
     }
 
     private Vertex<Integer> getVertexForEdge(Vertex<Integer> v, Edge<Integer> e){
+        //PriorityQueue<HashMap<String,String >> pr = new PriorityQueue<>();
         return e.getVertex1().equals(v) ? e.getVertex2() : e.getVertex1();
     }
 

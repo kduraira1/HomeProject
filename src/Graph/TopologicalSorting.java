@@ -3,6 +3,8 @@ package Graph;
 import javax.swing.*;
 import java.util.*;
 
+//vertex means nodes.
+// Edge is line between two nodes.
 public class TopologicalSorting<T> {
 
     public Deque<Vertex<T>> topSort(Graph<T> graph) {

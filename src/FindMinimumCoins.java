@@ -4,7 +4,7 @@ import java.util.List;
 
 public class FindMinimumCoins {
 
-// Write it down on the paper to come up with logic... if no logic coms up then don't code.
+// Write it down on the paper to come up with logic... if no logic comes up then don't code.
     // learn the logic.
     public int minimumCoinDP(int[] coins, int amount) {
 
@@ -158,8 +158,8 @@ public class FindMinimumCoins {
     }
     public static void main(String[] args) {
         FindMinimumCoins fmc = new FindMinimumCoins();
-        //System.out.println(fmc.coinChange(new int[]{1,2,5,10},100));
-        //System.out.println(fmc.minimumCoinDP(new int[]{1,2,5,10},100));
+        System.out.println(fmc.coinChange(new int[]{1,2,5,10},100));
+        System.out.println(fmc.minimumCoinDP(new int[]{1,2,5,10},100));
         System.out.println(fmc.coinChange1(new int[]{186,419,83,408},10000));
     }
 

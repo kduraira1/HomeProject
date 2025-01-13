@@ -2,6 +2,13 @@ package Graph;
 
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * Date 10/11/2014
+ * @author Tushar Roy
+ * Shortest path from the given source vertex
+ *
+ * */
 public class DijkstraShortestPath {
 
     public Map<Vertex<Integer>,Integer> shortestPath(Graph<Integer> graph, Vertex<Integer> sourceVertex){

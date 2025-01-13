@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package DP;
 
 public class KnapSack {
     //int[] memo = new memo[100][100]
@@ -31,17 +31,17 @@ public class KnapSack {
         }
         // Choice diagram implementation
         if(weight[size-1] <= maxWeight) {
-           memo[size][maxWeight] =  Math.max((values[size-1] + recursiveKnapSack(weight, values, maxWeight - weight[size-1], size -1 )),
-                    recursiveKnapSack(weight, values, maxWeight, size -1 ));
+           memo[size][maxWeight] =  Math.max((values[size-1] + recursiveKnapSackWithMemo(weight, values, maxWeight - weight[size-1], size -1, memo)),
+                   recursiveKnapSackWithMemo(weight, values, maxWeight, size -1,memo));
            return memo[size][maxWeight];
 
         } else {
-            memo[size][maxWeight] = recursiveKnapSack(weight, values, maxWeight, size -1 );
+            memo[size][maxWeight] = recursiveKnapSackWithMemo(weight, values, maxWeight, size -1, memo);
             return  memo[size][maxWeight];
         }
     }
 
-    public int knapSackTopDownDP(int[] weight, int[] values, int maxWeight, int size) {
+    public int knapSackBottomUPDP(int[] weight, int[] values, int maxWeight, int size) {
         //Calculate base condition.
         int[][] memo = new int[size + 1][maxWeight + 1];
         if (maxWeight == 0 || size == 0) {
@@ -54,7 +54,7 @@ public class KnapSack {
 
         }
         // Choice diagram implementation
-
+    // Weight is row and max weight is J
         for (int i = 1; i < size+1; i++) {
             for (int j = 1; j < maxWeight +1 ; j++) {
                 if (weight[i-1] <= j) {
@@ -79,6 +79,9 @@ public class KnapSack {
 
         KnapSack ks = new KnapSack();
         int[][] memo = new int[5][8];
+
+
+        // one size bigger
        for(int i = 0; i < memo.length; i++) {
            for(int j = 0; j < memo[0].length; j++) {
                memo[i][j] = -1;
@@ -89,7 +92,7 @@ public class KnapSack {
         System.out.println(ks.recursiveKnapSackWithMemo(weight, values, 7, 4, memo));
         int[] weight1 = new int[] {1,3,4,5};
         int[] values1 = new int[] {1,4,5,7};
-        System.out.println(ks.knapSackTopDownDP(weight1, values1, 7,4));
+        System.out.println(ks.knapSackBottomUPDP(weight1, values1, 7,4));
 
 
     }

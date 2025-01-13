@@ -149,6 +149,8 @@ public class BackTrackingSolutions {
     public boolean isPalinDrome1(String str, int start, int end){
         if(str.isEmpty()) return false;
         while (start <end) {
+            //Careful here.. it should be charAT and dont use substring. Logical breakage may happen.
+
             if(str.charAt(start++) != str.charAt(end--) ) {
                 return false;
             }
