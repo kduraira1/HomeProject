@@ -18,7 +18,7 @@ import java.util.*;
 public class PrimMST {
 
     /**
-     * Main method of Prim's algorithm.
+     * home.Main method of Prim's algorithm.
      */
     public List<Edge<Integer>> primMST(Graph<Integer> graph){
 
